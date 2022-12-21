@@ -15,10 +15,22 @@
                 <h1 class="gray mb-4">Strong Password Generator</h1>
                 <h2 class="white">Genera una password sicura</h2>
             </div>
-
-            <form action="">
-                
-            </form>
+            <div class="card w-75 p-4 m-auto">
+                <form action="">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="lunghezza" class="mt-1">Lunghezza password:</label>
+                        </div>
+                        <div class="col-6">
+                            <input id="lunghezza" type="text" class=" form-control w-50">
+                        </div>
+                        <div class="col-12 mt-4">
+                            <button class="btn btn-primary">Invia</button>
+                            <button class="btn btn-secondary">Annulla</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </body>
