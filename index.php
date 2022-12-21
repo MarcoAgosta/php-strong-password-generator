@@ -1,3 +1,23 @@
+<?php
+
+
+function creaPassword ($num){
+    $password="";
+    for ($i=1; $i<=$num; $i++){
+        $password .= chr(rand(65, 122));
+        echo "<script>console.log('{$password}')</script>";
+    };
+    return $password;
+};
+
+if (isset($_GET["length"]) && is_numeric($_GET["length"])){
+    $passwordCreata=creaPassword($_GET["length"]);
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,14 +35,23 @@
                 <h1 class="gray mb-4">Strong Password Generator</h1>
                 <h2 class="white">Genera una password sicura</h2>
             </div>
+            <?php if (isset($passwordCreata)) : ?>
+                <div class="alert alert-success w-75 m-auto mb-3 mt-3" role="alert">
+                    <span>La password ottenuta è: <?php echo $passwordCreata ?></span>
+                </div>
+            <?php else : ?>
+                <div class="alert alert-primary w-75 m-auto mb-3 mt-3" role="alert">
+                    <span>Form non ancora compilato o errato</span>
+                </div>
+            <?php endif ?>
             <div class="card w-75 p-4 m-auto">
-                <form action="">
+                <form action="index.php" method="GET">
                     <div class="row">
                         <div class="col-6">
                             <label for="lunghezza" class="mt-1">Lunghezza password:</label>
                         </div>
                         <div class="col-6">
-                            <input id="lunghezza" type="text" class=" form-control w-50">
+                            <input id="lunghezza" name="length" type="text" class=" form-control w-50">
                         </div>
                         <div class="col-12 mt-4">
                             <button class="btn btn-primary">Invia</button>
